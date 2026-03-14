@@ -23,8 +23,16 @@
       content="Nephrologist, Internal Medicine, Medical Doctor, Fiction Writer, Non-Fiction Writer, Translator, Web Developer, IT Consultant, AI Enthusiast, Lubomir Polascin"
     />
     <meta name="author" content="Lubomir Polascin" />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="canonical" href="https://polascin.net/" />
+    <link rel="alternate" hreflang="en" href="https://polascin.net/" />
+    <link rel="alternate" hreflang="sk" href="https://sk.polascin.net/" />
+    <link rel="alternate" hreflang="x-default" href="https://polascin.net/" />
 
     <!-- 3. Resource Hints & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,6 +69,8 @@
 
     <!-- 5. Open Graph / Social Media -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lubomir Polascin" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://polascin.net/" />
     <meta
       property="og:title"
@@ -71,8 +81,16 @@
       content="Nephrologist, Internal Medicine Specialist, Fiction & Non-Fiction Writer, Translator, and Self-Taught Programmer."
     />
     <meta property="og:image" content="https://polascin.net/og-image.jpg" />
+    <meta
+      property="og:image:alt"
+      content="Lubomir Polascin portfolio preview image"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content="@polascin" />
+    <meta property="twitter:creator" content="@polascin" />
     <meta property="twitter:url" content="https://polascin.net/" />
     <meta
       property="twitter:title"
@@ -85,6 +103,10 @@
     <meta
       property="twitter:image"
       content="https://polascin.net/og-image.jpg"
+    />
+    <meta
+      property="twitter:image:alt"
+      content="Lubomir Polascin portfolio preview image"
     />
 
     <!-- 6. Scripts (Analytics & Consent) -->
@@ -121,10 +143,21 @@
         "@graph": [
           {
             "@type": "WebSite",
+            "@id": "https://polascin.net/#website",
             "name": "Lubomir Polascin",
             "url": "https://polascin.net",
             "description": "Portfolio of Lubomir Polascin - Nephrologist, Writer, and Developer",
             "author": { "@id": "https://polascin.net/#person" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://polascin.net/#webpage",
+            "url": "https://polascin.net/",
+            "name": "Lubomir Polascin - Nephrologist, Writer & Web Developer",
+            "isPartOf": { "@id": "https://polascin.net/#website" },
+            "about": { "@id": "https://polascin.net/#person" },
+            "description": "Official portfolio website of Lubomir Polascin covering nephrology, medical writing, translation, and software projects.",
+            "inLanguage": "en-US"
           },
           {
             "@type": "Person",
@@ -185,6 +218,49 @@
               "@type": "EducationalOrganization",
               "name": "Pavol Jozef Šafárik University"
             }
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://polascin.net/#sections",
+            "name": "Homepage Sections",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "About",
+                "url": "https://polascin.net/#about"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Portfolio",
+                "url": "https://polascin.net/#portfolio"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Products",
+                "url": "https://polascin.net/#products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Websites",
+                "url": "https://polascin.net/#websites"
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Education",
+                "url": "https://polascin.net/#education"
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "name": "Contact",
+                "url": "https://polascin.net/#contact"
+              }
+            ]
           }
         ]
       }
@@ -206,6 +282,7 @@
         <img src="header_logo.jpg" alt="Lubomir Polascin" class="logo" />
         <ul class="nav-links">
           <li><a href="#home" class="active" aria-current="page">Home</a></li>
+          <li><a href="#expertise">Expertise</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#stats">Stats</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -1279,6 +1356,8 @@
               <li><a href="#about">About</a></li>
               <li><a href="#skills">Skills</a></li>
               <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#products">Products</a></li>
+              <li><a href="#websites">Websites</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -1394,6 +1473,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </body>
 </html>

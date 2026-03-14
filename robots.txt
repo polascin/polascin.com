@@ -6,6 +6,3 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://polascin.net/sitemap.xml
-
-# Crawl delay (optional, in seconds)
-Crawl-delay: 1
