@@ -211,6 +211,17 @@ ul {
     gap: 2rem;
 }
 
+/* Consistent space between major page sections */
+main>section+section {
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    main>section+section {
+        margin-top: 1.5rem;
+    }
+}
+
 /* Reusable utilities for previously inline styles */
 .link-clean {
     text-decoration: none;
