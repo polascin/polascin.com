@@ -1,9 +1,19 @@
 {
+  "files.autoSave": "onFocusChange",
+  "editor.wordWrap": "on",
   "editor.wrapOnEscapedLineFeeds": true,
-  "editor.wrappingIndent": "deepIndent",
-  "editor.wrappingStrategy": "advanced",
-  "diffEditor.wordWrap": "on",
+  "editor.wrappingIndent": "same",
+  "editor.wrappingStrategy": "simple",
   "workbench.editor.wrapTabs": true,
-  "html.format.wrapAttributes": "aligned-multiple",
-  "html.format.wrapLineLength": 80
+  "notebook.output.wordWrap": true,
+  "chat.editor.wordWrap": "on",
+  "html.format.wrapLineLength": 80,
+  "editor.defaultFormatter": null,
+  "diffEditor.wordWrap": "on",
+  "bladeFormatter.format.wrapAttributes": "auto",
+  "bladeFormatter.format.wrapLineLength": 120,
+  "git.autofetch": true,
+  "git.autofetchPeriod": 180,
+  "git.autoStash": true,
+  "git.postCommitCommand": "sync"
 }
