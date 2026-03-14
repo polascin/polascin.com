@@ -279,7 +279,17 @@
     <!-- Navigation -->
     <header class="site-header" role="banner">
       <nav class="container" role="navigation" aria-label="Main navigation">
-        <img src="header_logo.jpg" alt="Lubomir Polascin" class="logo" />
+        <img
+          src="header_logo.jpg"
+          alt="Lubomir Polascin"
+          class="logo"
+          loading="eager"
+          decoding="async"
+          onerror="
+            this.onerror = null;
+            this.src = 'book_cover_placeholder.png';
+          "
+        />
         <ul class="nav-links">
           <li><a href="#home" class="active" aria-current="page">Home</a></li>
           <li><a href="#expertise">Expertise</a></li>
@@ -563,6 +573,10 @@
                 decoding="async"
                 width="400"
                 height="500"
+                onerror="
+                  this.onerror = null;
+                  this.src = 'book_cover_placeholder.png';
+                "
               />
             </div>
           </div>
@@ -702,6 +716,10 @@
                   decoding="async"
                   width="400"
                   height="220"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'book_cover_placeholder.png';
+                  "
                 />
               </div>
               <div class="portfolio-content">
@@ -736,6 +754,10 @@
                   decoding="async"
                   width="400"
                   height="220"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'book_cover_placeholder.png';
+                  "
                 />
               </div>
               <div class="portfolio-content">
@@ -761,6 +783,10 @@
                   decoding="async"
                   width="400"
                   height="220"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'book_cover_placeholder.png';
+                  "
                 />
               </div>
               <div class="portfolio-content">

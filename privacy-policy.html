@@ -137,7 +137,16 @@
     <header class="site-header" role="banner">
       <nav class="container" role="navigation" aria-label="Main navigation">
         <a href="index.html"
-          ><img src="header_logo.jpg" alt="Lubomir Polascin" class="logo"
+          ><img
+            src="header_logo.jpg"
+            alt="Lubomir Polascin"
+            class="logo"
+            loading="eager"
+            decoding="async"
+            onerror="
+              this.onerror = null;
+              this.src = 'book_cover_placeholder.png';
+            "
         /></a>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
