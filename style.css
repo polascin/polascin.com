@@ -8,6 +8,7 @@
 
     --color-bg: hsl(var(--hue-primary), 20%, 98%);
     --color-bg-card: hsl(0, 0%, 100%);
+    --color-bg-alt: hsl(var(--hue-primary), 18%, 95%);
     --color-text-main: hsl(var(--hue-primary), 60%, 15%);
     --color-text-muted: hsl(var(--hue-primary), 20%, 40%);
 
@@ -54,6 +55,7 @@
 body {
     --color-bg: hsl(220, 20%, 98%);
     --color-bg-card: hsl(0, 0%, 100%);
+    --color-bg-alt: hsl(220, 18%, 95%);
     --color-text-main: hsl(220, 60%, 15%);
     --color-text-muted: hsl(220, 20%, 40%);
 
@@ -74,6 +76,7 @@ body {
     body {
         --color-bg: hsl(220, 20%, 10%);
         --color-bg-card: hsl(220, 15%, 15%);
+        --color-bg-alt: hsl(220, 16%, 13%);
         --color-text-main: hsl(220, 20%, 95%);
         --color-text-muted: hsl(220, 10%, 65%);
 
@@ -90,6 +93,7 @@ body {
 body.dark-mode {
     --color-bg: hsl(220, 20%, 10%);
     --color-bg-card: hsl(220, 15%, 15%);
+    --color-bg-alt: hsl(220, 16%, 13%);
     --color-text-main: hsl(220, 20%, 95%);
     --color-text-muted: hsl(220, 10%, 65%);
 
@@ -105,6 +109,7 @@ body.dark-mode {
 body:not(.dark-mode) {
     --color-bg: hsl(220, 20%, 98%);
     --color-bg-card: hsl(0, 0%, 100%);
+    --color-bg-alt: hsl(220, 18%, 95%);
     --color-text-main: hsl(220, 60%, 15%);
     --color-text-muted: hsl(220, 20%, 40%);
 

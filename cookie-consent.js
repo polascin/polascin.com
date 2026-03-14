@@ -21,7 +21,7 @@
         <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-heading">
             <div class="cookie-content">
                 <h3 id="cookie-heading">We value your privacy</h3>
-                <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. <a href="privacy-policy.html" target="_blank">Privacy Policy</a></p>
+                <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></p>
             </div>
             <div class="cookie-actions">
                 <button id="cookie-preferences" class="btn btn-secondary btn-sm">Preferences</button>
@@ -101,12 +101,20 @@
         }
 
         loadConsent() {
-            const saved = localStorage.getItem(STORAGE_KEY);
-            return saved ? JSON.parse(saved) : null;
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                return saved ? JSON.parse(saved) : null;
+            } catch (error) {
+                return null;
+            }
         }
 
         saveConsent(consentState) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(consentState));
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(consentState));
+            } catch (error) {
+                // If storage is unavailable, still apply consent for this session.
+            }
             this.updateGtmConsent(consentState);
             this.removeUI();
             this.addRevisitButton();
@@ -123,7 +131,7 @@
                     'consent_status': consentState
                 });
 
-                console.log('Consent updated:', consentState);
+                // Silent in production.
             }
         }
 

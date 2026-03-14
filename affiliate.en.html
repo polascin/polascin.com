@@ -37,7 +37,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- SEO Meta Tags -->
-    <!-- SEO Meta Tags -->
     <meta
       name="description"
       content="Curated affiliate links and recommendations for books, medical resources, and digital products by Lubomir Polascin."
@@ -48,6 +47,7 @@
     />
     <meta name="author" content="Lubomir Polascin" />
     <meta name="robots" content="index, follow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href="https://polascin.net/affiliate.en.html" />
 
     <!-- Open Graph / Facebook -->
@@ -85,7 +85,7 @@
     <!-- Security -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self';"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;"
     />
 
     <!-- Title -->
@@ -162,6 +162,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fontawesome-free-7.1.0-web/css/all.min.css" />
 
     <!-- Theme Color -->
     <meta
@@ -664,7 +665,9 @@
             >📘</a
           >
           <a
-            href="#"
+            href="https://github.com/polascin"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="GitHub"
             style="font-size: 1.5rem; transition: transform 0.2s"
             >💻</a
@@ -717,6 +720,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </body>
 </html>

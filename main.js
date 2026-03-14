@@ -66,11 +66,15 @@ function initDarkMode() {
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
+            if (!targetId) {
+                return;
+            }
+
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
+                e.preventDefault();
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
@@ -198,6 +202,7 @@ function initPrimaryButton() {
 
 function initStickyHeader() {
     const header = document.querySelector('.site-header');
+    if (!header) return;
 
     // Initial check
     if (window.scrollY > 50) {
@@ -363,7 +368,8 @@ function initBackToTop() {
 // HANDLE SYSTEM THEME CHANGES
 // ==========================================
 
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+const prefersDarkMedia = window.matchMedia('(prefers-color-scheme: dark)');
+const handleSystemThemeChange = (e) => {
     // Only apply if user hasn't manually set a preference
     if (!localStorage.getItem('theme')) {
         const isDark = e.matches;
@@ -380,7 +386,13 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
             }
         }
     }
-});
+};
+
+if (typeof prefersDarkMedia.addEventListener === 'function') {
+    prefersDarkMedia.addEventListener('change', handleSystemThemeChange);
+} else if (typeof prefersDarkMedia.addListener === 'function') {
+    prefersDarkMedia.addListener(handleSystemThemeChange);
+}
 
 // ==========================================
 // PREMIUM ENHANCEMENTS - NEW FEATURES
@@ -398,6 +410,10 @@ function initScrollProgress() {
 
     const updateProgress = debounce(() => {
         const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (windowHeight <= 0) {
+            progressBar.style.width = '0%';
+            return;
+        }
         const scrolled = (window.pageYOffset / windowHeight) * 100;
         progressBar.style.width = `${scrolled}%`;
     }, 10);

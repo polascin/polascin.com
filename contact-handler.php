@@ -11,7 +11,7 @@ header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
 header('Referrer-Policy: no-referrer');
 
-const ADMIN_EMAIL = 'lubomir.polascin@example.com'; // Change to production mailbox.
+const ADMIN_EMAIL = 'lubomir@polascin.net';
 const SITE_NAME = 'Lubomir Polascin Portfolio';
 const RATE_LIMIT_MINUTES = 5;
 const RATE_LIMIT_MAX_REQUESTS = 3;
@@ -21,6 +21,15 @@ function respond(int $statusCode, array $payload): void
     http_response_code($statusCode);
     echo json_encode($payload, JSON_UNESCAPED_SLASHES);
     exit;
+}
+
+function textLength(string $value): int
+{
+    if (function_exists('mb_strlen')) {
+        return mb_strlen($value, 'UTF-8');
+    }
+
+    return strlen($value);
 }
 
 function getClientIp(): string
@@ -100,14 +109,26 @@ if (!checkRateLimit($clientIp)) {
 $nameInput = filter_input(INPUT_POST, 'name', FILTER_UNSAFE_RAW);
 $emailInput = filter_input(INPUT_POST, 'email', FILTER_UNSAFE_RAW);
 $messageInput = filter_input(INPUT_POST, 'message', FILTER_UNSAFE_RAW);
+$websiteInput = filter_input(INPUT_POST, 'website', FILTER_UNSAFE_RAW);
 
 $name = trim((string) $nameInput);
 $email = trim((string) $emailInput);
 $message = trim((string) $messageInput);
+$website = trim((string) $websiteInput);
+
+if ($website !== '') {
+    respond(400, [
+        'success' => false,
+        'message' => 'Invalid submission.',
+        'errors' => [
+            'security' => 'Spam protection triggered.',
+        ],
+    ]);
+}
 
 $errors = [];
 
-if ($name === '' || mb_strlen($name) < 2 || mb_strlen($name) > 100) {
+if ($name === '' || textLength($name) < 2 || textLength($name) > 100) {
     $errors['name'] = 'Please provide a valid name (2-100 characters).';
 }
 
@@ -115,7 +136,7 @@ if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email
     $errors['email'] = 'Please provide a valid email address.';
 }
 
-if ($message === '' || mb_strlen($message) < 10 || mb_strlen($message) > 2000) {
+if ($message === '' || textLength($message) < 10 || textLength($message) > 2000) {
     $errors['message'] = 'Message must be between 10 and 2000 characters.';
 }
 
@@ -150,6 +171,9 @@ $safeEmail = htmlspecialchars($email, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 $safeMessage = nl2br(htmlspecialchars($message, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
 $serverName = htmlspecialchars($_SERVER['SERVER_NAME'] ?? 'localhost', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 $dateString = date('Y-m-d H:i:s T');
+
+$headerSafeName = preg_replace('/[\r\n]+/', ' ', $name);
+$headerSafeEmail = preg_replace('/[\r\n]+/', '', $email);
 
 $subject = 'New Contact Form Submission from ' . SITE_NAME;
 
@@ -200,7 +224,7 @@ $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/html; charset=UTF-8',
     'From: ' . SITE_NAME . ' <noreply@' . ($_SERVER['SERVER_NAME'] ?? 'localhost') . '>',
-    'Reply-To: ' . $safeName . ' <' . $email . '>',
+    'Reply-To: ' . $headerSafeName . ' <' . $headerSafeEmail . '>',
     'X-Mailer: PHP/' . phpversion(),
     'X-Originating-IP: ' . $clientIp,
 ];
