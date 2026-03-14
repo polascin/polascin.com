@@ -17,6 +17,10 @@ function debounce(func, wait = 20) {
     };
 }
 
+function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 // ==========================================
 // DARK MODE TOGGLE
 // ==========================================
@@ -147,7 +151,7 @@ function initActiveNavigation() {
         });
     }, 100);
 
-    window.addEventListener('scroll', highlightNav);
+    window.addEventListener('scroll', highlightNav, { passive: true });
 }
 
 // ==========================================
@@ -217,7 +221,7 @@ function initStickyHeader() {
         }
     }, 10);
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 }
 
 // ==========================================
@@ -227,6 +231,11 @@ function initStickyHeader() {
 function initTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     if (!typingElement) return;
+
+    if (prefersReducedMotion()) {
+        typingElement.textContent = 'Nephrologist';
+        return;
+    }
 
     const roles = [
         "Nephrologist",
@@ -278,14 +287,18 @@ function initTypingAnimation() {
 
 function initMobileMenu() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const menuIcon = menuToggle ? menuToggle.querySelector('i') : null;
     const navLinks = document.querySelector('.nav-links');
     const body = document.body;
 
     if (!menuToggle || !navLinks) return;
 
+    menuToggle.setAttribute('aria-label', 'Open mobile menu');
+
     // Create overlay element
     const overlay = document.createElement('div');
     overlay.className = 'mobile-menu-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
     body.appendChild(overlay);
 
     // Toggle menu
@@ -294,6 +307,13 @@ function initMobileMenu() {
         menuToggle.classList.toggle('active');
         overlay.classList.toggle('active');
         menuToggle.setAttribute('aria-expanded', isActive);
+        menuToggle.setAttribute('aria-label', isActive ? 'Close mobile menu' : 'Open mobile menu');
+        overlay.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+
+        if (menuIcon) {
+            menuIcon.classList.toggle('fa-bars', !isActive);
+            menuIcon.classList.toggle('fa-xmark', isActive);
+        }
 
         // Prevent body scroll when menu is open
         if (isActive) {
@@ -309,6 +329,12 @@ function initMobileMenu() {
         menuToggle.classList.remove('active');
         overlay.classList.remove('active');
         menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open mobile menu');
+        overlay.setAttribute('aria-hidden', 'true');
+        if (menuIcon) {
+            menuIcon.classList.add('fa-bars');
+            menuIcon.classList.remove('fa-xmark');
+        }
         body.style.overflow = '';
     }
 
@@ -353,7 +379,7 @@ function initBackToTop() {
         }
     }, 100);
 
-    window.addEventListener('scroll', toggleButton);
+    window.addEventListener('scroll', toggleButton, { passive: true });
 
     // Scroll to top on click
     backToTop.addEventListener('click', () => {
@@ -418,7 +444,7 @@ function initScrollProgress() {
         progressBar.style.width = `${scrolled}%`;
     }, 10);
 
-    window.addEventListener('scroll', updateProgress);
+    window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress(); // Initial call
 }
 
@@ -480,6 +506,8 @@ class ToastNotification {
     show(message, type = 'info', duration = 4000) {
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
+        toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
+        toast.setAttribute('aria-live', type === 'error' ? 'assertive' : 'polite');
 
         const icons = {
             success: '✓',
@@ -546,6 +574,13 @@ const toast = new ToastNotification();
 
 function initEnhancedContactForm() {
     const form = document.querySelector('.contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    function announceFormStatus(message) {
+        if (formStatus) {
+            formStatus.textContent = message;
+        }
+    }
 
     if (form) {
         form.addEventListener('submit', async (e) => {
@@ -582,11 +617,15 @@ function initEnhancedContactForm() {
 
                 if (response.ok && result && result.success) {
                     // Success feedback with toast
-                    toast.success(result.message || `Thank you for your message, ${name}! I'll get back to you soon.`);
+                    const successMessage = result.message || `Thank you for your message, ${name}! I'll get back to you soon.`;
+                    toast.success(successMessage);
+                    announceFormStatus(successMessage);
                     form.reset();
                 } else {
                     // Error feedback with toast
-                    toast.error((result && result.message) || 'There was an error sending your message. Please try again.');
+                    const errorMessage = (result && result.message) || 'There was an error sending your message. Please try again.';
+                    toast.error(errorMessage);
+                    announceFormStatus(errorMessage);
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
@@ -595,7 +634,9 @@ function initEnhancedContactForm() {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
 
-                toast.error('Unable to reach the server. Please try again in a moment.');
+                const networkError = 'Unable to reach the server. Please try again in a moment.';
+                toast.error(networkError);
+                announceFormStatus(networkError);
             }
         });
 
@@ -621,10 +662,12 @@ function initEnhancedContactForm() {
             if (input.hasAttribute('required') && !input.value.trim()) {
                 input.classList.add('error');
                 input.style.borderColor = '#ef4444';
+                announceFormStatus(`${input.name || 'This field'} is required.`);
                 return false;
             } else if (input.type === 'email' && input.value && !input.validity.valid) {
                 input.classList.add('error');
                 input.style.borderColor = '#ef4444';
+                announceFormStatus('Please enter a valid email address.');
                 return false;
             } else {
                 input.classList.remove('error');
@@ -642,6 +685,14 @@ function initEnhancedContactForm() {
 function initStatsCounter() {
     const statNumbers = document.querySelectorAll('.stat-number');
     if (statNumbers.length === 0) return;
+
+    if (prefersReducedMotion()) {
+        statNumbers.forEach((stat) => {
+            const target = parseInt(stat.getAttribute('data-count') || stat.textContent, 10);
+            stat.textContent = Number.isFinite(target) ? target.toLocaleString() : stat.textContent;
+        });
+        return;
+    }
 
     const observerOptions = {
         threshold: 0.5,
@@ -686,6 +737,14 @@ function initSkillBars() {
     const skillBars = document.querySelectorAll('.skill-progress');
     if (skillBars.length === 0) return;
 
+    if (prefersReducedMotion()) {
+        skillBars.forEach((bar) => {
+            const percentage = bar.getAttribute('data-percentage');
+            bar.style.width = `${percentage}%`;
+        });
+        return;
+    }
+
     const observerOptions = {
         threshold: 0.5,
         rootMargin: '0px'
@@ -722,7 +781,7 @@ function initParallaxEffect() {
         });
     }, 10);
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 }
 
 // ==========================================
@@ -767,11 +826,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initServiceWorker(); // PWA support
 
     // NEW PREMIUM FEATURES
-    initScrollProgress();
-    initParticleEffects();
+    if (!prefersReducedMotion()) {
+        initScrollProgress();
+        initParticleEffects();
+    }
     initStatsCounter();
     initSkillBars();
-    initParallaxEffect();
+    if (!prefersReducedMotion()) {
+        initParallaxEffect();
+    }
     initYearUpdate(); // Add year update
 
     // Performance logging removed in production.

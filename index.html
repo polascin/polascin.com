@@ -18,10 +18,6 @@
       name="description"
       content="Lubomir Polascin - Nephrologist, Internal Medicine Specialist, Consultant, Fiction & Non-Fiction Writer, Translator, and Self-Taught Programmer. Bridging medicine, technology, and literature."
     />
-    <meta
-      name="keywords"
-      content="Nephrologist, Internal Medicine, Medical Doctor, Fiction Writer, Non-Fiction Writer, Translator, Web Developer, IT Consultant, AI Enthusiast, Lubomir Polascin"
-    />
     <meta name="author" content="Lubomir Polascin" />
     <meta
       name="robots"
@@ -37,6 +33,13 @@
     <!-- 3. Resource Hints & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://www.googletagmanager.com"
+      crossorigin
+    />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="preload" href="style.css" as="style" />
     <link
       rel="preload"
@@ -147,6 +150,7 @@
             "name": "Lubomir Polascin",
             "url": "https://polascin.net",
             "description": "Portfolio of Lubomir Polascin - Nephrologist, Writer, and Developer",
+            "inLanguage": "en-US",
             "author": { "@id": "https://polascin.net/#person" }
           },
           {
@@ -164,6 +168,7 @@
             "@id": "https://polascin.net/#person",
             "name": "Lubomir Polascin",
             "url": "https://polascin.net",
+            "inLanguage": "en-US",
             "image": "https://polascin.net/profile_photo.jpg",
             "sameAs": [
               "https://www.linkedin.com/in/lubomirpolascin/",
@@ -290,7 +295,7 @@
             this.src = 'book_cover_placeholder.png';
           "
         />
-        <ul class="nav-links">
+        <ul class="nav-links" id="primary-navigation">
           <li><a href="#home" class="active" aria-current="page">Home</a></li>
           <li><a href="#expertise">Expertise</a></li>
           <li><a href="#about">About</a></li>
@@ -305,10 +310,12 @@
         </ul>
         <button
           class="mobile-menu-toggle"
-          aria-label="Toggle mobile menu"
+          aria-label="Open mobile menu"
           aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-haspopup="true"
         >
-          <i class="fas fa-bars"></i>
+          <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
         <button
           class="theme-toggle"
@@ -464,6 +471,7 @@
                       href="https://www.linkedin.com/in/lubomirpolascin/"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="View Lubomir Polascin LinkedIn profile"
                       >Profile</a
                     >
                   </li>
@@ -473,6 +481,7 @@
                       href="https://www.facebook.com/lubomir.polascin"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="View Lubomir Polascin Facebook profile"
                       >Profile</a
                     >
                   </li>
@@ -482,6 +491,7 @@
                       href="https://x.com/polascin"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="View Lubomir Polascin X profile"
                       >Profile</a
                     >
                   </li>
@@ -491,6 +501,7 @@
                       href="https://www.patreon.com/c/Csoelle?vanity=user"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Join Lubomir Polascin on Patreon"
                       >Join</a
                     >
                   </li>
@@ -500,6 +511,7 @@
                       href="https://discord.com/channels/696992368792043620/696992368792043623"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Open Lubomir Polascin Discord server"
                       >Server</a
                     >
                   </li>
@@ -829,6 +841,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-primary btn-compact"
+                    aria-label="Buy The Vital Algorithm on Amazon"
                     >Buy on Amazon</a
                   >
                   <a
@@ -836,6 +849,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-secondary btn-compact"
+                    aria-label="Open Amazon author profile for Walter Kyo Csoelle"
                     >Author Profile</a
                   >
                 </div>
@@ -867,6 +881,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-primary btn-compact"
+                    aria-label="Buy Blood Equity on Amazon"
                     >Buy on Amazon</a
                   >
                   <a
@@ -874,6 +889,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-secondary btn-compact"
+                    aria-label="Open Amazon author profile for Walter Kyo Csoelle"
                     >Author Profile</a
                   >
                 </div>
@@ -905,6 +921,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-primary btn-compact"
+                    aria-label="Buy Pulse of the Body on Amazon"
                     >Buy on Amazon</a
                   >
                   <a
@@ -912,6 +929,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-secondary btn-compact"
+                    aria-label="Open Amazon author profile for Walter Kyo Csoelle"
                     >Author Profile</a
                   >
                 </div>
@@ -941,6 +959,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-secondary btn-compact"
+                    aria-label="Open Walter Kyo Csoelle Amazon author profile"
                     >Walter Kyo Csoelle</a
                   >
                   <a
@@ -948,6 +967,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-secondary btn-compact"
+                    aria-label="Open Lubomir Polascin Amazon author profile"
                     >Lubomir Polascin</a
                   >
                 </div>
@@ -989,6 +1009,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-primary btn-gumroad"
+                    aria-label="Get featured digital product on Gumroad"
                     >Get it on Gumroad</a
                   >
                 </div>
@@ -999,19 +1020,24 @@
               <div class="portfolio-image">
                 <div class="portfolio-placeholder placeholder-fasting">
                   <span class="placeholder-emoji">🥗</span>
-                  <span class="placeholder-title">Medicínsky pôst</span>
+                  <span class="placeholder-title" lang="sk"
+                    >Medicínsky pôst</span
+                  >
                 </div>
               </div>
               <div class="portfolio-content">
-                <h3>Medicínsky pôst</h3>
+                <h3 lang="sk">Medicínsky pôst</h3>
                 <p>
-                  Ako využiť silu hladovania a nezničiť si metabolizmus. (How to
-                  harness the power of fasting without destroying your
+                  <span lang="sk"
+                    >Ako využiť silu hladovania a nezničiť si
+                    metabolizmus.</span
+                  >
+                  (How to harness the power of fasting without destroying your
                   metabolism.)
                 </p>
                 <div class="portfolio-tags">
                   <span class="mini-tag">Health</span>
-                  <span class="mini-tag">Fasting</span>
+                  <span class="mini-tag" lang="sk">Pôst</span>
                   <span class="mini-tag">Guide</span>
                 </div>
                 <div class="mt-1">
@@ -1020,6 +1046,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-primary btn-gumroad"
+                    aria-label="Get Medicinsky post on Gumroad"
                     >Get it on Gumroad</a
                   >
                 </div>
@@ -1039,7 +1066,10 @@
           <p class="section-subtitle">
             Explore my other online projects and domains.
           </p>
-
+          <span lang="sk"
+            >Ako využiť silu hladovania a nezničiť si metabolizmus.</span
+          >
+          (How to
           <div class="portfolio-grid">
             <article class="portfolio-item">
               <div class="portfolio-image">
@@ -1212,6 +1242,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-primary"
+                    aria-label="Visit Nephrosite educational resource website"
                     >Visit Nephrosite</a
                   >
                   <a
@@ -1219,6 +1250,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-secondary ml-05"
+                    aria-label="Read Lubomir Polascin full biography on polascin.net"
                     >Read Full Bio</a
                   >
                 </div>
@@ -1304,6 +1336,12 @@
             method="post"
             aria-label="Contact form"
           >
+            <p
+              id="form-status"
+              class="sr-only"
+              role="status"
+              aria-live="polite"
+            ></p>
             <div class="form-group">
               <label for="name">Name</label>
               <input
