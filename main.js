@@ -176,8 +176,6 @@ function initPrimaryButton() {
 
     if (btn) {
         btn.addEventListener('click', async () => {
-            console.log('Get Started clicked!');
-
             await handleButtonLoading(btn, () => {
                 // Scroll to contact section
                 const contactSection = document.getElementById('contact');
@@ -545,8 +543,6 @@ function initEnhancedContactForm() {
             const email = formData.get('email');
             const message = formData.get('message');
 
-            console.log('Submitting form:', { name, email, message });
-
             // Start loading state
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
@@ -557,19 +553,24 @@ function initEnhancedContactForm() {
                     body: formData
                 });
 
-                const result = await response.json();
+                let result = null;
+                try {
+                    result = await response.json();
+                } catch {
+                    result = null;
+                }
 
                 // Remove loading state
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
 
-                if (result.success) {
+                if (response.ok && result && result.success) {
                     // Success feedback with toast
                     toast.success(result.message || `Thank you for your message, ${name}! I'll get back to you soon.`);
                     form.reset();
                 } else {
                     // Error feedback with toast
-                    toast.error(result.message || 'There was an error sending your message. Please try again.');
+                    toast.error((result && result.message) || 'There was an error sending your message. Please try again.');
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
@@ -578,9 +579,7 @@ function initEnhancedContactForm() {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
 
-                // Show success toast for demo
-                toast.success(`Thank you for your message, ${name}! I'll get back to you soon.`);
-                form.reset();
+                toast.error('Unable to reach the server. Please try again in a moment.');
             }
         });
 
@@ -719,14 +718,7 @@ function initParallaxEffect() {
 // ==========================================
 
 function initServiceWorker() {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function (registrations) {
-            for (let registration of registrations) {
-                registration.unregister();
-                console.log('Service Worker unregistered');
-            }
-        });
-    }
+    // Intentionally left as a no-op. Keep function for compatibility.
 }
 
 // ==========================================
@@ -745,8 +737,6 @@ function initYearUpdate() {
 // ==========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Lubomir Polascin - Premium Portfolio Initialized ✨');
-
     // Initialize all features
     initDarkMode();
     initMobileMenu();
@@ -768,13 +758,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallaxEffect();
     initYearUpdate(); // Add year update
 
-    // Performance logging (development only)
-    if (window.performance && window.performance.timing) {
-        window.addEventListener('load', () => {
-            const loadTime = window.performance.timing.domContentLoadedEventEnd -
-                window.performance.timing.navigationStart;
-            console.log(`Page loaded in ${loadTime}ms`);
-            toast.info(`Page loaded in ${loadTime}ms`, 2000);
-        });
-    }
+    // Performance logging removed in production.
 });
