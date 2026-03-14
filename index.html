@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- 1. Technical Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Security (CSP) -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; frame-src 'self';">
+
+    <!-- 2. Page Title & SEO -->
+    <title>Lubomir Polascin - Nephrologist, Writer & Web Developer</title>
+    <meta name="description"
+          content="Lubomir Polascin - Nephrologist, Internal Medicine Specialist, Consultant, Fiction & Non-Fiction Writer, Translator, and Self-Taught Programmer. Bridging medicine, technology, and literature.">
+    <meta name="keywords"
+          content="Nephrologist, Internal Medicine, Medical Doctor, Fiction Writer, Non-Fiction Writer, Translator, Web Developer, IT Consultant, AI Enthusiast, Lubomir Polascin">
+    <meta name="author" content="Lubomir Polascin">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://polascin.net/">
+
+    <!-- 3. Resource Hints & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome-free-7.1.0-web/css/all.min.css">
+
+    <!-- 4. Favicon & Manifest -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="180x180" href="favicon.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=2">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3b82f6"
+          media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e293b"
+          media="(prefers-color-scheme: dark)">
+
+    <!-- 5. Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://polascin.net/">
+    <meta property="og:title"
+          content="Lubomir Polascin - Medical Doctor, Writer & Developer">
+    <meta property="og:description"
+          content="Nephrologist, Internal Medicine Specialist, Fiction & Non-Fiction Writer, Translator, and Self-Taught Programmer.">
+    <meta property="og:image" content="https://polascin.net/og-image.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://polascin.net/">
+    <meta property="twitter:title"
+          content="Lubomir Polascin - Medical Doctor, Writer & Developer">
+    <meta property="twitter:description"
+          content="Nephrologist, Internal Medicine Specialist, Fiction & Non-Fiction Writer, Translator, and Self-Taught Programmer.">
+    <meta property="twitter:image" content="https://polascin.net/og-image.jpg">
+
+    <!-- 6. Scripts (Analytics & Consent) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      // Default consent to 'denied'
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
+    <script src="cookie-consent.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-0ELX5GCENJ"></script>
+    <script>
+      gtag('js', new Date());
+      gtag('config', 'G-0ELX5GCENJ');
+    </script>
+
+    <!-- 7. Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@graph": [
+    {
+    "@type": "WebSite",
+    "name": "Lubomir Polascin",
+    "url": "https://polascin.net",
+    "description": "Portfolio of Lubomir Polascin - Nephrologist, Writer, and Developer",
+    "author": { "@id": "https://polascin.net/#person" }
+    },
+    {
+    "@type": "Person",
+    "@id": "https://polascin.net/#person",
+    "name": "Lubomir Polascin",
+    "url": "https://polascin.net",
+    "image": "https://polascin.net/profile_photo.jpg",
+    "sameAs": [
+    "https://www.linkedin.com/in/lubomirpolascin/",
+    "https://www.facebook.com/lubomir.polascin",
+    "https://x.com/polascin",
+    "https://www.amazon.com/stores/Lubomir-Polascin/author/B07PN436VJ",
+    "https://github.com/polascin"
+    ],
+    "jobTitle": ["Nephrologist", "Internal Medicine Specialist", "Writer", "Translator", "Web Developer"],
+    "worksFor": { "@type": "Organization", "name": "Various Medical Institutions" },
+    "description": "Nephrologist, Internal Medicine Specialist, Fiction & Non-Fiction Writer, Translator, and Self-Taught Programmer. Bridging medicine, technology, and literature.",
+    "email": "lubomir@polascin.net",
+    "address": { "@type": "PostalAddress", "addressCountry": "SK" },
+    "knowsAbout": ["Nephrology", "Dialysis", "Internal Medicine", "Web Development", "AI", "Medical Writing", "Translation", "Fiction Writing", "Non-Fiction Writing"],
+    "hasOccupation": [
+      { "@type": "Occupation", "name": "Nephrologist", "occupationLocation": { "@type": "Country", "name": "Slovakia" } },
+      { "@type": "Occupation", "name": "Web Developer", "occupationLocation": { "@type": "Country", "name": "Slovakia" } },
+      { "@type": "Occupation", "name": "Writer", "occupationLocation": { "@type": "Country", "name": "Slovakia" } }
+    ],
+    "alumniOf": { "@type": "EducationalOrganization", "name": "Pavol Jozef Šafárik University" }
+    }
+    ]
+    }
+    </script>
+  </head>
+
+  <body>
+
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-content"
+       aria-label="Skip to main content">Skip to main content</a>
+
+    <!-- Navigation -->
+    <header class="site-header" role="banner">
+      <nav class="container" role="navigation" aria-label="Main navigation">
+        <img src="header_logo.jpg" alt="Lubomir Polascin" class="logo">
+        <ul class="nav-links">
+          <li><a href="#home" class="active" aria-current="page">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#stats">Stats</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu"
+                aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode"
+                title="Toggle dark/light mode">
+          <i class="theme-icon fas fa-moon"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section id="home" class="hero-section fade-in-section">
+        <div class="container hero-content">
+          <h1>Where Medicine Meets Technology</h1>
+          <p class="hero-subtitle">
+            I am a <span id="typing-text"
+                  style="color: var(--color-primary); font-weight: 600;">Medical
+              Doctor</span><span class="typing-cursor"></span>
+            <br>
+            Bridging healthcare, literature, and cutting-edge technology with
+            passion and precision.
+          </p>
+          <div class="cta-group">
+            <button id="primary-btn" class="btn btn-primary"
+                    aria-label="Get started with my services">
+              <span class="btn-text">Get Started</span>
+              <span class="btn-loader" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn-secondary"
+                    aria-label="Learn more about my work">Learn More</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expertise Section -->
+      <section id="expertise" class="features-section fade-in-section">
+        <div class="container">
+          <h2>Multi-Disciplinary Expertise</h2>
+          <div class="grid-3">
+            <article class="card">
+              <div class="card-icon" aria-hidden="true"><i
+                   class="fas fa-hospital"></i></div>
+              <h3>Medical Practice</h3>
+              <p>Experienced nephrologist bringing clinical precision and
+                patient-centered thinking to every endeavor.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true"><i
+                   class="fas fa-laptop-code"></i></div>
+              <h3>Self-Taught Developer</h3>
+              <p>From HTML to AI, building modern web solutions with clean code
+                and innovative approaches.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon" aria-hidden="true"><i
+                   class="fas fa-language"></i></div>
+              <h3>Writer & Translator</h3>
+              <p>Author of fiction and non-fiction, bridging languages and
+                cultures with precise translation and compelling storytelling.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about-section fade-in-section">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-content">
+              <h2>About Me</h2>
+              <p class="about-intro">Hi, I’m <strong>Lubomir Polascin</strong> —
+                a Medical Doctor and Internal Medicine Specialist by profession,
+                a Fiction and Non-Fiction Writer by calling, and a Self-Taught
+                Programmer by passion.</p>
+
+              <h3>Who I Am</h3>
+              <p>My work rests at the intersection of medicine, storytelling,
+                and technology. Medicine sharpens my clinical precision; writing
+                lets me explore the human condition through fiction and
+                non-fiction; and technology empowers me to solve complex
+                problems. As a consultant, I bridge these worlds to deliver
+                thoughtful, well-informed solutions.</p>
+              <p>I approach every challenge with curiosity and rigor—whether I’m
+                treating patients, debugging code, translating nuanced text, or
+                exploring AI.</p>
+
+              <div class="bio-card"
+                   style="background: var(--color-bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin: 1.5rem 0;">
+                <h3 style="margin-top: 0;">Bio</h3>
+                <ul class="bio-list" style="list-style: none; padding: 0;">
+                  <li style="margin-bottom: 0.5rem;"><strong>Name:</strong>
+                    Lubomir Polascin</li>
+                  <li style="margin-bottom: 0.5rem;">
+                    <strong>Pronunciation:</strong> <em>Ljubomeer
+                      Polaschtcheen</em>
+                  </li>
+                  <li style="margin-bottom: 0.5rem;"><strong>Email:</strong> <a
+                       href="mailto:lubomir@polascin.net">lubomir@polascin.net</a>
+                  </li>
+                  <li style="margin-bottom: 0.5rem;"><strong>Web:</strong> <a
+                       href="https://polascin.net"
+                       target="_blank">polascin.net</a> | <a
+                       href="https://sk.polascin.net"
+                       target="_blank">sk.polascin.net</a> | <a
+                       href="https://polascin.sk"
+                       target="_blank">polascin.sk</a></li>
+                  <li style="margin-bottom: 0.5rem;"><strong>LinkedIn:</strong>
+                    <a href="https://www.linkedin.com/in/lubomirpolascin/"
+                       target="_blank">Profile</a>
+                  </li>
+                  <li style="margin-bottom: 0.5rem;"></li>
+                  <strong>Facebook:</strong> <a
+                     href="https://www.facebook.com/lubomir.polascin"
+                     target="_blank">Profile</a></li>
+                </ul>
+                <li style="margin-bottom: 0.5rem;"><strong>X (Twitter):</strong>
+                  <a href="https://x.com/polascin" target="_blank">Profile</a>
+                </li>
+                <li style="margin-bottom: 0.5rem;"><strong>Patreon:</strong> <a
+                     href="https://www.patreon.com/c/Csoelle?vanity=user"
+                     target="_blank">Join</a></li>
+                <li style="margin-bottom: 0.5rem;"><strong>Discord:</strong> <a
+                     href="https://discord.com/channels/696992368792043620/696992368792043623"
+                     target="_blank">Server</a></li>
+              </div>
+
+              <h3>Professional Identity</h3>
+              <p>I am a medical doctor who graduated in General Medicine (1995)
+                and specialized in Nephrology (2009). I am attested in Internal
+                Medicine (1998) and certified in Abdominal Ultrasonic Imaging in
+                Adults (2009).</p>
+              <p><strong>Areas of Expertise:</strong></p>
+              <ul>
+                <li>Dialysis and renal replacement therapies (Hemodialysis,
+                  Hemodiafiltration, Hemofiltration)</li>
+                <li>Vascular access ultrasonography for dialysis</li>
+                <li>Extra-corporeal and intra-corporeal elimination therapies
+                </li>
+                <li>Membrane plasma separation and related therapies</li>
+                <li>Kidney transplantation</li>
+              </ul>
+              <p>I have extensive experience teaching and lecturing in Internal
+                Medicine, Diabetology, nephrology, and related fields. I am also
+                a translator specializing in English-Slovak and Slovak-English
+                medical translation and software localization.</p>
+
+              <h3>Technology, IT, and Programming</h3>
+              <p>I am deeply involved in information technology, computer
+                science, and programming. My interests include:</p>
+              <div class="skills-tags" style="margin-bottom: 1rem;">
+                <span class="tag">HTML/CSS/JS</span>
+                <span class="tag">PHP</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Python</span>
+                <span class="tag">Linux/Unix</span>
+                <span class="tag">AI</span>
+                <span class="tag">FOSS</span>
+              </div>
+
+              <h3>Background & Journey</h3>
+              <p>I began my medical education at the University of Pavol Jozef
+                Šafárik in Košice, Slovakia. Since 1995, my focus has been on
+                dialysis and nephrology. From 2013 to 2022, I served as Chief
+                Medical Officer/Head Physician at two dialysis centers in
+                Bratislava.</p>
+
+              <h3>Personal Touch</h3>
+              <p>Born in 1971 in Czechoslovakia, I was raised in Kyjov. My
+                Ruthenian roots inform my worldview. My passions include
+                reading, travel, philosophy, and poetry.</p>
+            </div>
+            <div class="about-image">
+              <img src="profile_photo.jpg"
+                   alt="Lubomir Polascin - Nephrologist and Web Developer"
+                   class="profile-img" loading="lazy" decoding="async"
+                   width="400" height="500">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call-to-Action Section -->
+      <section id="cta" class="cta-section fade-in-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Ready to Collaborate?</h2>
+            <p>Let's combine medical expertise, technical innovation, and
+              creative storytelling to solve complex challenges.</p>
+            <div class="cta-buttons">
+              <a href="#contact" class="btn btn-primary btn-large">Start a
+                Project</a>
+              <a href="#portfolio" class="btn btn-secondary btn-large">View My
+                Work</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics Section -->
+      <section id="stats" class="stats-section fade-in-section">
+        <div class="container">
+          <h2>By the Numbers</h2>
+          <p class="section-subtitle">Measurable impact across medicine,
+            technology, and literature.</p>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-number" data-count="37">0</span>
+              <div class="stat-label">Years in Medicine</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-count="9">0</span>
+              <div class="stat-label">Years as Chief Physician</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-count="1000">0</span>
+              <div class="stat-label">Patients Treated</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-count="6">0</span>
+              <div class="stat-label">Published Books</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills-section fade-in-section">
+        <div class="container">
+          <h2>Technical Skills</h2>
+          <p class="section-subtitle">Expertise across multiple domains.</p>
+          <div style="max-width: 800px; margin: 3rem auto;">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Nephrology & Internal Medicine</span>
+                <span class="skill-percentage">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-percentage="95"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Medical Writing & Translation</span>
+                <span class="skill-percentage">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-percentage="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Web Development
+                  (HTML/CSS/JS/PHP)</span>
+                <span class="skill-percentage">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-percentage="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Python & Data Analysis</span>
+                <span class="skill-percentage">75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-percentage="75"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">AI & Machine Learning</span>
+                <span class="skill-percentage">70%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-percentage="70"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Linux/Unix Systems</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-percentage="80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="portfolio-section fade-in-section">
+        <div class="container">
+          <h2>Portfolio</h2>
+          <p class="section-subtitle">A selection of projects spanning medicine,
+            technology, and linguistics.</p>
+          <div class="portfolio-grid">
+            <article class="portfolio-item">
+              <div class="portfolio-image">
+                <img src="portfolio_medical_app_1769190637470.png"
+                     alt="Clinical Decision Support Tool UI - NephroSite"
+                     loading="lazy" decoding="async" width="400" height="220">
+              </div>
+              <div class="portfolio-content">
+                <h3><a href="https://nephrosite.polascin.net/" target="_blank"
+                     rel="noopener noreferrer"
+                     style="text-decoration: none; color: inherit;">Nephrosite</a>
+                </h3>
+                <p>A comprehensive professional resource on Clinical Nephrology,
+                  Dialysis, and Kidney Transplantation. Designed for detailed
+                  medical reference and patient education.</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">Nephrology</span>
+                  <span class="mini-tag">Medical Web</span>
+                  <span class="mini-tag">Education</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <div class="portfolio-image">
+                <img src="portfolio_translation_1769190652082.png"
+                     alt="Medical Translation Services - English to Slovak"
+                     loading="lazy" decoding="async" width="400" height="220">
+              </div>
+              <div class="portfolio-content">
+                <h3>Medical Translation Projects</h3>
+                <p>Specialized medical document translation between English and
+                  Slovak, maintaining clinical accuracy and regulatory
+                  compliance.</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">Translation</span>
+                  <span class="mini-tag">Medical Writing</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <div class="portfolio-image">
+                <img src="portfolio_ai_assistant_1769190669745.png"
+                     alt="AI-Powered Medical Writing Assistant" loading="lazy"
+                     decoding="async" width="400" height="220">
+              </div>
+              <div class="portfolio-content">
+                <h3>AI-Powered Content Assistant</h3>
+                <p>Custom GPT integration for medical writing assistance,
+                  streamlining research documentation and patient education
+                  materials.</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">AI</span>
+                  <span class="mini-tag">Python</span>
+                  <span class="mini-tag">API Integration</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder"
+                     style="background: linear-gradient(135deg, #0f172a, #334155); display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; text-align: center; padding: 1rem;">
+                  <span
+                        style="font-size: 3rem; margin-bottom: 0.5rem;">📖</span>
+                  <span style="font-weight: 700; font-size: 1.1rem;">The Vital
+                    Algorithm</span>
+                </div>
+              </div>
+              <div class="portfolio-content">
+                <h3>The Vital Algorithm</h3>
+                <p>A medical thriller exploring the collision of big data,
+                  corporate greed, and bioethics. "If an algorithm had to choose
+                  between saving a CEO or a teacher, how would it decide?"</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">Medical Thriller</span>
+                  <span class="mini-tag">Fiction</span>
+                  <span class="mini-tag">AI Ethics</span>
+                </div>
+                <div
+                     style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <a href="https://amzn.to/4releu8" target="_blank"
+                     class="btn btn-primary"
+                     style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Buy on
+                    Amazon</a>
+                  <a href="https://amzn.to/3NAMp3I" target="_blank"
+                     class="btn btn-secondary"
+                     style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Author
+                    Profile</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder"
+                     style="background: linear-gradient(135deg, #7f1d1d, #374151); display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; text-align: center; padding: 1rem;">
+                  <span
+                        style="font-size: 3rem; margin-bottom: 0.5rem;">🩸</span>
+                  <span style="font-weight: 700; font-size: 1.1rem;">Blood
+                    Equity</span>
+                </div>
+              </div>
+              <div class="portfolio-content">
+                <h3>Blood Equity</h3>
+                <p>A corporate thriller set in post-socialist Carpathia. Dr.
+                  Andrej Varga fights to save his dialysis clinic—and his
+                  patients—from a ruthless multinational conglomerate.</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">Medical Thriller</span>
+                  <span class="mini-tag">Corporate Greed</span>
+                  <span class="mini-tag">Ethics</span>
+                </div>
+                <div
+                     style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <a href="https://amzn.to/4qIyAPm" target="_blank"
+                     class="btn btn-primary"
+                     style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Buy on
+                    Amazon</a>
+                  <a href="https://amzn.to/3NAMp3I" target="_blank"
+                     class="btn btn-secondary"
+                     style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Author
+                    Profile</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder"
+                     style="background: linear-gradient(135deg, #3b82f6, #f8fafc); display: flex; align-items: center; justify-content: center; color: #1e293b; flex-direction: column; text-align: center; padding: 1rem;">
+                  <span
+                        style="font-size: 3rem; margin-bottom: 0.5rem;">❤️‍🩹</span>
+                  <span style="font-weight: 700; font-size: 1.1rem;">Pulse of
+                    the Body</span>
+                </div>
+              </div>
+              <div class="portfolio-content">
+                <h3>Pulse of the Body</h3>
+                <p>A novel of medicine, humanity, and the edge of life. Thomas
+                  Shimur's journey through terminal kidney failure and the
+                  ethical complexities of experimental treatment.</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">Literary Medical Fiction</span>
+                  <span class="mini-tag">Bioethics</span>
+                  <span class="mini-tag">Humanity</span>
+                </div>
+                <div
+                     style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <a href="https://amzn.to/3LKrJ8W" target="_blank"
+                     class="btn btn-primary"
+                     style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Buy on
+                    Amazon</a>
+                  <a href="https://amzn.to/3NAMp3I" target="_blank"
+                     class="btn btn-secondary"
+                     style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Author
+                    Profile</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder"
+                     style="background: linear-gradient(135deg, #FF9900, #146eb4); display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; text-align: center; padding: 1rem;">
+                  <span
+                        style="font-size: 3rem; margin-bottom: 0.5rem;">✍️</span>
+                  <span style="font-weight: 700; font-size: 1.1rem;">Amazon
+                    Author Profile</span>
+                </div>
+              </div>
+              <div class="portfolio-content">
+                <h3>Discover More Works</h3>
+                <p>Explore my full bibliography, biography, and latest updates
+                  on my official Amazon Author Page.</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">Walter Kyo Csoelle</span>
+                  <span class="mini-tag">Lubomir Polascin</span>
+                </div>
+                <div
+                     style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <a href="https://amzn.to/3NAMp3I" target="_blank"
+                     class="btn btn-secondary"
+                     style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Walter
+                    Kyo Csoelle</a>
+                  <a href="https://www.amazon.com/stores/Lubomir-Polascin/author/B07PN436VJ"
+                     target="_blank" class="btn btn-secondary"
+                     style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Lubomir
+                    Polascin</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Digital Products Section -->
+      <section id="products" class="products-section fade-in-section"
+               style="background-color: var(--color-bg-alt);">
+        <div class="container">
+          <h2>Digital Products</h2>
+          <p class="section-subtitle">Practical guides for better health.</p>
+          <div class="portfolio-grid"
+               style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); justify-content: center;">
+            <article class="portfolio-item">
+              <div class="portfolio-image">
+                <div class="portfolio-placeholder"
+                     style="background: linear-gradient(135deg, #10b981, #ecfdf5); display: flex; align-items: center; justify-content: center; color: #064e3b; flex-direction: column; text-align: center; padding: 1rem;">
+                  <span
+                        style="font-size: 3rem; margin-bottom: 0.5rem;">🥗</span>
+                  <span style="font-weight: 700; font-size: 1.1rem;">Medicínsky
+                    pôst</span>
+                </div>
+              </div>
+              <div class="portfolio-content">
+                <h3>Medicínsky pôst</h3>
+                <p>Ako využiť silu hladovania a nezničiť si metabolizmus. (How
+                  to harness the power of fasting without destroying your
+                  metabolism.)</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">Health</span>
+                  <span class="mini-tag">Fasting</span>
+                  <span class="mini-tag">Guide</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                  <a href="https://polascin.gumroad.com/l/hcilux"
+                     target="_blank" class="btn btn-primary"
+                     style="background-color: #ff90e8; color: #000; border: none; font-weight: 700;">Get
+                    it on Gumroad</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="education-section fade-in-section"
+               style="background-color: var(--color-bg);">
+        <div class="container">
+          <h2>Nephrology Education</h2>
+          <p class="section-subtitle">Understanding kidney health and treatment
+            options.</p>
+          <div class="about-grid"> <!-- Reusing grid layout for consistency -->
+            <div class="about-content" style="grid-column: 1 / -1;">
+              <h3 style="color: var(--color-primary);">What is Nephrology?</h3>
+              <p>Nephrology is an essential medical specialty that deals with
+                the kidneys, which are crucial organs responsible for filtering
+                waste products, regulating blood pressure, and maintaining fluid
+                balance.</p>
+              <p>Nephrologists diagnose and manage conditions such as:</p>
+              <ul
+                  style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.5rem; margin-top: 1rem;">
+                <li><strong>Chronic Kidney Disease (CKD)</strong></li>
+                <li><strong>Acute Kidney Injury (AKI)</strong></li>
+                <li><strong>Hypertension</strong></li>
+                <li><strong>Electrolyte Imbalances</strong></li>
+                <li><strong>Kidney Stones</strong></li>
+                <li><strong>Glomerulonephritis</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="portfolio-grid" style="margin-top: 2rem;">
+            <article class="portfolio-item"
+                     style="cursor: default; transform: none; box-shadow: var(--shadow-sm);">
+              <div class="portfolio-content">
+                <h3 style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 1.5rem;">🩸</span> Haemodialysis
+                </h3>
+                <p><strong>The most common form of dialysis.</strong> Blood is
+                  filtered through an artificial kidney machine (dialyzer) to
+                  remove waste and excess fluids.</p>
+                <p style="font-size: 0.9em; margin-top: 0.5rem;"><strong>How it
+                    works:</strong> Blood is drawn from a vascular access (like
+                  an AV fistula), cleaned in the machine using diffusion and
+                  ultrafiltration, and returned to the body.</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">In-Center</span>
+                  <span class="mini-tag">Blood Filtration</span>
+                  <span class="mini-tag">AV Fistula</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item"
+                     style="cursor: default; transform: none; box-shadow: var(--shadow-sm);">
+              <div class="portfolio-content">
+                <h3 style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 1.5rem;">🏠</span> Peritoneal Dialysis
+                </h3>
+                <p><strong>A home-based treatment option.</strong> Uses the
+                  body's own peritoneal membrane in the abdomen as a natural
+                  filter.</p>
+                <p style="font-size: 0.9em; margin-top: 0.5rem;"><strong>How it
+                    works:</strong> Dialysis solution (dialysate) enters the
+                  abdomen via a catheter, absorbs wastes, and is then drained.
+                  It can be done manually (CAPD) or with a machine at night
+                  (APD).</p>
+                <div class="portfolio-tags">
+                  <span class="mini-tag">Home Therapy</span>
+                  <span class="mini-tag">Needle-Free</span>
+                  <span class="mini-tag">Flexible</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-item"
+                     style="cursor: default; transform: none; box-shadow: var(--shadow-sm); border: 1px solid var(--color-primary); background: var(--color-bg-alt);">
+              <div class="portfolio-content">
+                <h3 style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 1.5rem;">🌐</span> Learn More
+                </h3>
+                <p>For in-depth articles on clinical nephrology,
+                  transplantation, and patient care, visit my dedicated
+                  educational resource.</p>
+                <div style="margin-top: 1rem;">
+                  <a href="https://nephrosite.polascin.net/" target="_blank"
+                     class="btn btn-primary">Visit Nephrosite</a>
+                  <a href="https://polascin.net" target="_blank"
+                     class="btn btn-secondary" style="margin-left: 0.5rem;">Read
+                    Full Bio</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="testimonials-section fade-in-section">
+        <div class="container">
+          <h2>Testimonials</h2>
+          <p class="section-subtitle">What colleagues and clients say about
+            working with me.</p>
+          <div class="testimonials-grid">
+            <article class="testimonial-card">
+              <div class="testimonial-content">
+                <p>"Lubomir's unique combination of medical knowledge and
+                  technical skills is invaluable. He built a custom tool that
+                  has transformed how we manage patient data in our nephrology
+                  practice."</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">MS</div>
+                <div class="author-info">
+                  <strong>Dr. Maria Schmidt</strong>
+                  <span>Head of Nephrology Department</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-content">
+                <p>"Working with Lubomir on medical document translation was
+                  seamless. His attention to clinical terminology and cultural
+                  nuance is exceptional."</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">JK</div>
+                <div class="author-info">
+                  <strong>Jana Kováčová</strong>
+                  <span>Medical Affairs Manager</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-content">
+                <p>"As a consultant, Lubomir brings fresh perspectives backed by
+                  solid expertise. His ability to translate complex technical
+                  concepts into actionable solutions is remarkable."</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">PT</div>
+                <div class="author-info">
+                  <strong>Peter Tóth</strong>
+                  <span>CEO, HealthTech Innovations</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section fade-in-section">
+        <div class="container">
+          <h2>Get In Touch</h2>
+          <p class="section-subtitle">Have a project in mind? Let's create
+            something amazing together.</p>
+          <form class="contact-form" action="contact-handler.php" method="post"
+                aria-label="Contact form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required
+                     aria-required="true" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required
+                     aria-required="true" placeholder="your.email@example.com">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required
+                        aria-required="true"
+                        placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top"
+            title="Back to top">
+      <span>↑</span>
+    </button>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Lubomir Polascin</h3>
+            <p>Nephrologist, Writer, Developer</p>
+            <p>Bridging medicine, technology, and literature with passion and
+              precision.</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="https://nephrosite.polascin.net/" target="_blank"
+                   rel="noopener">NephroSite</a></li>
+              <li><a href="https://polascin.net" target="_blank"
+                   rel="noopener">Medical Blog</a></li>
+              <li><a href="https://amzn.to/3NAMp3I" target="_blank"
+                   rel="noopener">Books</a></li>
+              <li><a href="https://polascin.gumroad.com/" target="_blank"
+                   rel="noopener">Digital Products</a></li>
+              <li><a href="affiliate.en.html">Recommendations</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-of-service.html">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/lubomirpolascin/"
+                 aria-label="LinkedIn" title="LinkedIn Profile"><i
+                   class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/polascin" aria-label="X (Twitter)"
+                 title="X Profile"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/lubomir.polascin"
+                 aria-label="Facebook" title="Facebook Profile"><i
+                   class="fab fa-facebook"></i></a>
+              <a href="mailto:lubomir@polascin.net" aria-label="Email"
+                 title="Send Email"><i class="fas fa-envelope"></i></a>
+              <a href="https://www.patreon.com/c/Csoelle?vanity=user"
+                 aria-label="Patreon" title="Support on Patreon"><i
+                   class="fab fa-patreon"></i></a>
+              <a href="https://discord.com/channels/696992368792043620/696992368792043623"
+                 aria-label="Discord" title="Join Discord"><i
+                   class="fab fa-discord"></i></a>
+            </div>
+            <p class="footer-contact">
+              <a href="mailto:lubomir@polascin.net">lubomir@polascin.net</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 1998 - <span id="current-year"></span> Lubomir Polascin. All
+            rights reserved.</p>
+          <p class="footer-tagline">Built with passion and modern web
+            technologies.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+  </body>
+
+</html>

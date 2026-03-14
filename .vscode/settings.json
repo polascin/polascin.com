@@ -1,0 +1,9 @@
+{
+  "editor.wrapOnEscapedLineFeeds": true,
+  "editor.wrappingIndent": "deepIndent",
+  "editor.wrappingStrategy": "advanced",
+  "diffEditor.wordWrap": "on",
+  "workbench.editor.wrapTabs": true,
+  "html.format.wrapAttributes": "aligned-multiple",
+  "html.format.wrapLineLength": 80
+}

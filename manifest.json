@@ -1,0 +1,20 @@
+{
+  "name": "Lubomir Polascin - Portfolio",
+  "short_name": "L. Polascin",
+  "description": "Nephrologist, Internal Medicine Specialist, Fiction & Non-Fiction Writer, Translator, and Self-Taught Programmer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["medical", "technology", "portfolio"],
+  "lang": "en-US"
+}
