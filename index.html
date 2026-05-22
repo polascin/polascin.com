@@ -9,7 +9,7 @@
     <!-- Security (CSP) -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; frame-src 'self';"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; frame-src 'self';"
     />
 
     <!-- 2. Page Title & SEO -->
@@ -40,6 +40,8 @@
     />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <link rel="preload" href="style.css" as="style" />
     <link
       rel="preload"
@@ -51,8 +53,12 @@
       rel="stylesheet"
     />
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css?v=20260522" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
 
     <!-- 4. Favicon & Manifest -->
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
@@ -1082,10 +1088,6 @@
           <p class="section-subtitle">
             Explore my other online projects and domains.
           </p>
-          <span lang="sk"
-            >Ako využiť silu hladovania a nezničiť si metabolizmus.</span
-          >
-          (How to
           <div class="portfolio-grid">
             <article class="portfolio-item">
               <div class="portfolio-image">
@@ -1384,7 +1386,12 @@
               aria-live="polite"
             ></p>
             <input type="hidden" name="csrf_token" id="csrf-token" value="" />
-            <input type="hidden" name="loaded_at" id="form-loaded-at" value="" />
+            <input
+              type="hidden"
+              name="loaded_at"
+              id="form-loaded-at"
+              value=""
+            />
             <div class="form-group">
               <label for="name">Name</label>
               <input
