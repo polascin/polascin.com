@@ -262,18 +262,6 @@ ul {
   position: absolute;
   top: -40px;
   left: 0;
-  .particles-container,
-  .scroll-progress {
-    display: none !important;
-  }
-  .card:hover,
-  .portfolio-item:hover,
-  .testimonial-card:hover,
-  .btn:hover,
-  .back-to-top:hover {
-    transform: none !important;
-    box-shadow: var(--shadow-sm) !important;
-  }
   background: var(--color-primary);
   color: white;
   padding: 0.5rem 1rem;
@@ -284,6 +272,11 @@ ul {
 
 .skip-to-content:focus {
   top: 0;
+}
+
+/* Scroll offset for sticky header */
+section[id] {
+  scroll-margin-top: 80px;
 }
 
 /* Layout Utilities */
@@ -302,12 +295,12 @@ ul {
 
 /* Consistent space between major page sections */
 main > section + section {
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 @media (max-width: 768px) {
   main > section + section {
-    margin-top: 1.5rem;
+    margin-top: 0;
   }
 }
 
@@ -617,7 +610,7 @@ body.dark-mode .site-header.scrolled {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   flex: 1;
   justify-content: center;
 }
@@ -725,8 +718,30 @@ body.dark-mode .theme-toggle {
   letter-spacing: -0.02em;
 }
 
+@media (prefers-color-scheme: dark) {
+  .hero-content h1 {
+    background: linear-gradient(130deg, #e2e8f0 10%, #60a5fa 60%, #34d399 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+body.dark-mode .hero-content h1 {
+  background: linear-gradient(130deg, #e2e8f0 10%, #60a5fa 60%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-tagline {
+  font-size: 1.35rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
   color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto 2.5rem;
@@ -775,7 +790,6 @@ body.dark-mode .theme-toggle {
   background-color: rgba(255, 255, 255, 0.72);
   color: var(--color-text-main);
   border: 1px solid rgba(15, 23, 42, 0.14);
-  margin-left: 1rem;
 }
 
 .btn-secondary:hover {
@@ -1114,6 +1128,18 @@ body.dark-mode .testimonial-card {
 .testimonial-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
+}
+
+.testimonial-content::before {
+  content: "\201C";
+  font-size: 4rem;
+  color: var(--color-primary);
+  opacity: 0.25;
+  line-height: 0;
+  display: block;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
 }
 
 .testimonial-content {
@@ -1623,6 +1649,14 @@ body.dark-mode .form-group textarea {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
+}
+
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Responsive */
@@ -2563,6 +2597,17 @@ body.dark-mode .site-header {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.cta-section .btn-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.cta-section .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.75);
 }
 
 .btn-large {
