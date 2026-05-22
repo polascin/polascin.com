@@ -6,6 +6,8 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/config.php';
+
 header('Content-Type: application/json; charset=UTF-8');
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
@@ -89,6 +91,36 @@ function checkRateLimit(string $ip): bool
     return true;
 }
 
+function validateCsrfToken(string $token): bool
+{
+    if ($token === '') {
+        return false;
+    }
+    $now = (int)(time() / 3600);
+    for ($i = 0; $i <= 1; $i++) {
+        $expected = hash_hmac('sha256', 'contact:' . ($now - $i), CSRF_SECRET);
+        if (hash_equals($expected, $token)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function validateTiming(string $raw): bool
+{
+    $loadedAt = filter_var($raw, FILTER_VALIDATE_INT);
+    if ($loadedAt === false || $loadedAt <= 0) {
+        return false;
+    }
+    $elapsed = time() - $loadedAt;
+    return $elapsed >= 3 && $elapsed <= 3600;
+}
+
+function countUrls(string $text): int
+{
+    return (int) preg_match_all('/https?:\/\/\S+/i', $text);
+}
+
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     respond(405, [
         'success' => false,
@@ -102,6 +134,25 @@ if (!checkRateLimit($clientIp)) {
     respond(429, [
         'success' => false,
         'message' => 'Too many requests. Please try again later.',
+        'errors' => [],
+    ]);
+}
+
+$csrfInput = filter_input(INPUT_POST, 'csrf_token', FILTER_UNSAFE_RAW);
+$csrfToken = trim((string) $csrfInput);
+if (!validateCsrfToken($csrfToken)) {
+    respond(403, [
+        'success' => false,
+        'message' => 'Your session has expired. Please refresh the page and try again.',
+        'errors' => [],
+    ]);
+}
+
+$loadedAtInput = filter_input(INPUT_POST, 'loaded_at', FILTER_UNSAFE_RAW);
+if (!validateTiming(trim((string) $loadedAtInput))) {
+    respond(400, [
+        'success' => false,
+        'message' => 'Invalid submission. Please refresh the page and try again.',
         'errors' => [],
     ]);
 }
@@ -138,6 +189,8 @@ if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email
 
 if ($message === '' || textLength($message) < 10 || textLength($message) > 2000) {
     $errors['message'] = 'Message must be between 10 and 2000 characters.';
+} elseif (countUrls($message) > 2) {
+    $errors['message'] = 'Message contains too many links.';
 }
 
 $suspiciousPatterns = [

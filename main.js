@@ -583,6 +583,19 @@ function initEnhancedContactForm() {
     }
 
     if (form) {
+        const loadedAtField = form.querySelector('#form-loaded-at');
+        if (loadedAtField) {
+            loadedAtField.value = String(Math.floor(Date.now() / 1000));
+        }
+
+        const csrfField = form.querySelector('#csrf-token');
+        if (csrfField) {
+            fetch('csrf-token.php')
+                .then(r => r.json())
+                .then(d => { if (d && d.token) csrfField.value = d.token; })
+                .catch(() => {});
+        }
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
