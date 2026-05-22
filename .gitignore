@@ -39,6 +39,18 @@ php_errors.log
 # Claude Code — celý adresár je lokálny
 .claude/
 
+# FontAwesome — loaded via CDN, not committed
+fontawesome-free-7.1.0-web/
+
+# Trunk — runtime and downloaded files, regenerated automatically
+.trunk/actions/
+.trunk/logs/
+.trunk/notifications/
+.trunk/out/
+.trunk/plugins/
+.trunk/tmp/
+.trunk/tools/
+
 # Citlivé súbory
 config.php
 *.pem
